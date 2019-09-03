@@ -1,0 +1,112 @@
+{# Plantilla #}
+{% extends 'base.html.twig' %}
+{# TITULO #}
+{% block titulo %}
+Nuestro equipo
+{% endblock %}
+{# CONTENIDO #}
+{% block contenido %}
+ <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">BAr de PAco
+      <small>Bares</small>
+    </h1>
+
+      <!-- BAR VALENCIA -->
+      {% if sitio=='vlc' or sitio=='todos' %}
+    <div class="row">
+      <!-- Map Column -->
+      <div class="col-lg-8 mb-4">
+        <!-- Embedded Google Map -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079.8114246555324!2d-0.37711878463254267!3d39.473588679485886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6048b2d282a02b%3A0x7e85d955ec12650f!2sCalle+de+la+Paz%2C+10%2C+46003+Valencia!5e0!3m2!1ses!2ses!4v1566554325227!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+      <!-- Contact Details Column -->
+      <div class="col-lg-4 mb-4">
+        <h3>Detalles</h3>
+        <p>
+          Valencia 46003
+          <br>calle de la Paz 10
+          <br>
+        </p>
+        <p>
+          <abbr title="Phone">P</abbr>: (123) 456-7890
+        </p>
+        <p>
+          <abbr title="Email">E</abbr>:
+          <a href="mailto:name@example.com">name@example.com
+          </a>
+        </p>
+        <p>
+          <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
+        </p>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- BAR BARCELONA -->
+      {% if sitio=='bcn' or sitio=='todos' %}
+    <div class="row">
+      <!-- Map Column -->
+      <div class="col-lg-8 mb-4">
+        <!-- Embedded Google Map -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.20966918834!2d2.1605452154259344!3d41.39125277926366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a29284410ea3%3A0x3de5d13aa374ccd0!2sRambla+de+Catalu%C3%B1a%2C+67%2C+08007+Barcelona!5e0!3m2!1ses!2ses!4v1566554184840!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+      <!-- Contact Details Column -->
+      <div class="col-lg-4 mb-4">
+        <h3>Detalles</h3>
+        <p>
+          BArna 08007
+          <br>Rambla de Cataluña 67
+          <br>
+        </p>
+        <p>
+          <abbr title="Phone">P</abbr>: (123) 456-7890
+        </p>
+        <p>
+          <abbr title="Email">E</abbr>:
+          <a href="mailto:name@example.com">name@example.com
+          </a>
+        </p>
+        <p>
+          <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
+        </p>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- BAR MADRID -->
+      {% if sitio=='mdr' or sitio=='todos' %}
+    <div class="row">
+      <!-- Map Column -->
+      <div class="col-lg-8 mb-4">
+        <!-- Embedded Google Map -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.928641167468!2d-3.7098838846036064!3d40.43257897936329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422860ac2b814f%3A0x15bc3040e617fb61!2sCalle+de+Arapiles%2C+17%2C+28015+Madrid!5e0!3m2!1ses!2ses!4v1566551785752!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+      <!-- Contact Details Column -->
+      <div class="col-lg-4 mb-4">
+        <h3>Detalles</h3>
+        <p>
+          Madrid 28015
+          <br>calle Arapiles 17
+          <br>
+        </p>
+        <p>
+          <abbr title="Phone">P</abbr>: (123) 456-7890
+        </p>
+        <p>
+          <abbr title="Email">E</abbr>:
+          <a href="mailto:name@example.com">name@example.com
+          </a>
+        </p>
+        <p>
+          <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
+        </p>
+      </div>
+    </div>
+    {% endif %}
+    <!-- /.row -->
+   </div>
+   {% endblock %}
+

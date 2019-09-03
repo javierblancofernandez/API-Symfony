@@ -1,0 +1,71 @@
+{# Plantilla #}
+{% extends 'base.html.twig' %}
+{# TITULO #}
+{% block titulo %}
+Nuestro equipo
+{% endblock %}
+{# CONTENIDO #}
+{% block contenido %}
+ <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">BAr de PAco
+      <small>Equipo</small>
+    </h1>
+
+     <!-- Image Header -->
+    <img class="img-fluid rounded mb-4" src="{{ asset('img/nosotros.jpg') }}" alt="">
+
+       <!-- Marketing Icons Section -->
+     <h2 class="mt-4 mb-3">Nuestro equipo
+    </h1>
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100 text-center">
+          <img class="card-img-top" src="{{ asset('img/goku.jpg')}}" alt="">
+          <div class="card-body">
+           <h4 class="card-title">D.Sucke Me </h4>
+           <h6 class="card-subtitle mb-2 text-muted">El Puto Amo </h6>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#">name@example.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100 text-center">
+          <img class="card-img-top" src="{{ asset('img/goku.jpg')}}" alt="">
+          <div class="card-body">
+          <h4 class="card-title">D.Sucke Me </h4>
+           <h6 class="card-subtitle mb-2 text-muted">El Puto Amo </h6>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+          </div>
+           <div class="card-footer">
+            <a href="#">name@example.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100 text-center">
+          <img class="card-img-top" src="{{ asset('img/goku.jpg')}}" alt="">
+          <div class="card-body">
+          <h4 class="card-title">D.Sucke Me </h4>
+           <h6 class="card-subtitle mb-2 text-muted">El Puto Amo </h6>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#">name@example.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+  </div>
+
+ </div>
+
+
+{% endblock %}
