@@ -124,13 +124,16 @@ class DefaultController extends Controller
         //Construyendo el formulario
         $form = $this->createForm(UsuarioType::class,$usuario);
         //Recogemos la informacion y almacena el formulario 
-        var_dump($usuario);
+       
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
           $password=$passwordEncoder->encodePassword($usuario,$usuario->getPlainPassword());
           $usuario->setPassword($password);
           //igualar username a email
           $usuario->setUsername($usuario->getEmail());
+
+          //3c Roles 
+          $usuario->setRoles(['ROLE_USER']);
 
             $entityManager = $this->getDoctrine()->getManager();//coger el manager de doctrine que me permitira hacer cosas contra la DB
             $entityManager->persist($usuario);//decir al entity manager cual es el objeto que vamos a almacenar

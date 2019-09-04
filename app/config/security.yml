@@ -30,7 +30,8 @@ security:
                 target: / 
     access_control:
         # require ROLE_ADMIN for /admin*
-        - { path: ^/gestionTapas/nuevaTapa, roles: ROLE_ADMIN }
+        - { path: ^/gestionTapas, roles: ROLE_ADMIN }
+        - { path: ^/reservas, roles: ROLE_USER }
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
