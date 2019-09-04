@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Usuario
@@ -23,14 +24,14 @@ class Usuario implements UserInterface, \Serializable
     private $id;
 
 /**
-     * @ORM\Column(type="string", length=25, unique=true)
+     * @ORM\Column(type="string", length=254, unique=true)
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=64)
      */
-    private $password;
+    public $password;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -125,6 +126,11 @@ class Usuario implements UserInterface, \Serializable
         return $this->email;
     }
 
+    public function setEmail($email)
+    {
+        return $this->email=$email;
+    }
+
     public function setUsername($username)
     {
         return $this->username=$username;
@@ -135,9 +141,9 @@ class Usuario implements UserInterface, \Serializable
         $this->plainPassword = $password;
     }
 
-    public function setEmail()
+    public function setPassword($password)
     {
-        return $this->email=$email;
+        return $this->password=$password;
     }
 
 }

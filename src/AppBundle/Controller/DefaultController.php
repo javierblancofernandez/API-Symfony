@@ -6,9 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use AppBundle\Entity\Tapa;
 use AppBundle\Entity\Categoria;
 use AppBundle\Entity\Ingrediente;
+use AppBundle\Entity\Usuario;
+
+use AppBundle\Form\UsuarioType;
+
+
 
 class DefaultController extends Controller
 {
@@ -34,7 +40,7 @@ class DefaultController extends Controller
     }
 
      /**
-     * @Route("/nosotros", name="nosotros")
+     * @Route("/nosotros/", name="nosotros")
      */
     public function nosotrosAction(Request $request)
     {
@@ -109,26 +115,28 @@ class DefaultController extends Controller
         
     }
           /**
-     * @Route("/nuevaUsuario", name="registro")
+     * @Route("/registro/", name="registro")
      */
     public function registroAction(Request $request,UserPasswordEncoderInterface $passwordEncoder)
     {
        
         $usuario=new Usuario();
         //Construyendo el formulario
-        $form = $this->createForm(UsuarioType::class, $usuario);
+        $form = $this->createForm(UsuarioType::class,$usuario);
         //Recogemos la informacion y almacena el formulario 
+        var_dump($usuario);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
           $password=$passwordEncoder->encodePassword($usuario,$usuario->getPlainPassword());
           $usuario->setPassword($password);
           //igualar username a email
-          $usuario=setUsername($usuario->getEmail());
+          $usuario->setUsername($usuario->getEmail());
 
             $entityManager = $this->getDoctrine()->getManager();//coger el manager de doctrine que me permitira hacer cosas contra la DB
-            $entityManager->persist($tapa);//decir al entity manager cual es el objeto que vamos a almacenar
+            $entityManager->persist($usuario);//decir al entity manager cual es el objeto que vamos a almacenar
             $entityManager->flush();//cerrar la conexion de la base de datos
-            return $this->redirectToRoute('tapa',['id'=>$tapa->getId()]);
+            
+            return $this->redirectToRoute('login');
         }
         //Capturar el repositorio de la TAbla contra la DB
         //$tapaRepository = $this->getDoctrine()->getRepository(Tapa::class);
@@ -136,8 +144,25 @@ class DefaultController extends Controller
         
 
         // replace this example code with whatever you need
-        return $this->render('gestionTapas/nuevaTapa.html.twig',array('form' => $form->createView())
+        return $this->render('frontal/registro.html.twig',array('form' => $form->createView())
         );
+    }
+
+     /**
+     * @Route("/login/", name="login")
+     */
+    public function loginAction(Request $request,AuthenticationUtils $authenticationUtils)
+    {
+         // get the login error if there is one
+         $error = $authenticationUtils->getLastAuthenticationError();
+
+         // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+        return $this->render('frontal/login.html.twig', [
+            'last_username' => $lastUsername,
+            'error'         => $error,
+            ]);
+    
     }
 
 
