@@ -90,7 +90,7 @@ class Usuario implements UserInterface, \Serializable
 
     public function getRoles()
     {
-        $roles_json=json_decode($this->roles);
+        $roles=json_decode($this->roles);
         return $roles;
     }
 

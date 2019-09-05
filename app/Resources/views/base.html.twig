@@ -7,6 +7,7 @@
          <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
         <!-- Custom styles for this template -->
+        <script src="https://kit.fontawesome.com/c58823e0ca.js"></script>
         <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet">
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -39,6 +40,16 @@
           </li>
           <li class="nav-item">
           {% if app.user %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reservas
+            </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+              <a class="dropdown-item" href="{{ path('nuevaReserva') }}">Nueva</a>
+              <a class="dropdown-item" href="{{ path('reservas')}}">Lista</a>
+          </div> 
+          </li>
+          <li class="nav-item">
           <a class="nav-link" href="{{ path('logout') }}">Salir</a>
           {% else %}
           <a class="nav-link" href="{{ path('login') }}">Reservas</a>

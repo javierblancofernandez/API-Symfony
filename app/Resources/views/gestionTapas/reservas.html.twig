@@ -16,7 +16,7 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">Editar</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Num Comensales</th>
                         <th scope="col">Observaciones</th>
@@ -25,7 +25,7 @@
                 <tbody>
                     {% for reserva in reservas %}
                         <tr>
-                            <th scope="row">{{reserva.id}}</th>
+                            <th scope="row"><a href="{{ path('nuevaReserva',{'id':reserva.id}) }}"><i class="fas fa-marker"></i></a></th>
                             <td>{{reserva.fecha| date('Y/m/d h:i')}}</td>
                             <td>{{reserva.comensales}}</td>
                             <td>{{reserva.observaciones}}</td>

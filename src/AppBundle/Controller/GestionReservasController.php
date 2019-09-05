@@ -19,12 +19,20 @@ class GestionReservasController extends Controller
 {
 
     /**
-     * @Route("/nueva", name="nuevaReserva")
+     * @Route("/nueva/{id}", name="nuevaReserva")
      */
-    public function nuevaReservaAction(Request $request)
+    public function nuevaReservaAction(Request $request,$id=null)
     {
+       if($id)
+       {
+        $repository =$this->getDoctrine()->getRepository(Reserva::class);
+        $reserva =$repository->find($id);
        
+        
+       }else{
         $reserva=new Reserva();
+       }
+        
         //Construyendo el formulario
         $form = $this->createForm(ReservaType::class, $reserva);
         //Recogemos la informacion y almacena el formulario 
@@ -57,7 +65,7 @@ class GestionReservasController extends Controller
     public function reservasAction(Request $request)
     {
         $repository =$this->getDoctrine()->getRepository(Reserva::class);
-        $reservas =$repository->findAll();
+        $reservas =$repository->findByUsuario($this->getUser());
         return $this->render('gestionTapas/reservas.html.twig',["reservas"=>$reservas]);
     }
 }
